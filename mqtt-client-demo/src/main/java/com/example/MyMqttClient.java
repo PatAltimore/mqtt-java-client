@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.time.Instant;
 
 public class MyMqttClient {
-    private static final String BROKER_ENDPOINT = "tcp://x.x.x.x:1883";
-    private static final String CLIENT_ID = "mqtt-java-client" + UUID.randomUUID();
+    private static final String BROKER_ENDPOINT = "tcp://20.150.201.236:1883";
+    private static final String CLIENT_ID = "mqtt-java-client-" + UUID.randomUUID();
     private static final String TOPIC = "java";
 
     public static void main(String[] args) {
