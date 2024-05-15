@@ -41,7 +41,10 @@ public class MyMqttClient {
                 System.out.println("\n-------------------------");
                 System.out.println("1. Publish message");
                 System.out.println("2. List received messages");
-                System.out.println("3. Disconnect, quit");
+                System.out.println("3. Toggle light");
+                System.out.println("4. Light on");
+                System.out.println("5. Light off");
+                System.out.println("6. Disconnect, quit");
                 System.out.print("Choose an option: ");
 
                 // Get user input
@@ -69,8 +72,23 @@ public class MyMqttClient {
                         System.out.println(msg);
                     }
 
-                // Disconnect and exit
+                // Toggle light
                 } else if (option == 3) {
+                    System.out.println("\nToggling light.");
+                    client.publish("light", "toggle".getBytes(), 0, false);
+
+                // Light on
+                } else if (option == 4) {
+                    System.out.println("\nLight on.");
+                    client.publish("light", "on".getBytes(), 0, false);
+
+                // Light off
+                } else if (option == 5) {
+                    System.out.println("\nLight off.");
+                    client.publish("light", "off".getBytes(), 0, false);
+
+                // Disconnect and exit
+                } else if (option == 6) {
                     System.out.println("\nDisconnecting from MQTT broker and exiting.");
                     client.disconnect();
                     client.close();
